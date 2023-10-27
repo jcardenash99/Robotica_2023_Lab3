@@ -10,7 +10,6 @@
 ### Ejercicio en el laboratorio
 
 - **a) Familiarización con comandos de Linux**
-  - Familiarízate con los comandos de mayor uso para la consola de Linux. Puedes encontrar más información en [este enlace](http://www.informit.com/blogs/blog.aspx?uk=The-10-Most-Important-Linux-Commands).
 
 - **b) Conexión de ROS con Matlab**
   - **Procedimiento:**
