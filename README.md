@@ -4,12 +4,12 @@
 ### Wilfer Armando Fiquitiva Mendez.
 ### Johan Leonardo Castellanos Ruiz.
 ### Juan Pablo Cardenas Higuera.
-![kkk](./kkk.png)
+
 ## Instructivo
 
 ### Ejercicio en el laboratorio
 
-- **a) Familiarización con comandos de Linux**
+- ** a) Familiarización con comandos de Linux **
 - Como primer acercamiento a linux partimeos por conocer unos comandos como herramientas para desempeñarnos en elsistema operativo, dentro de los cuales se tiene:
 -  **pwd:**Imprimir directorio de trabajo.
 -  **ls:** Permite la enumeración de archivos y directorios dentro del actual.
