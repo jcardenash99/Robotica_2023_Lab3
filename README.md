@@ -92,6 +92,7 @@ Al ejecutar un cambio en la posción inicial en la terminal en linux tenemos un 
 
 Como podemos observar en el codigo en linux se realiza al tiempo un desplazamiento en `x=2 y=-1 theta=z=pi` se dezplaza la tortuga y en windows en el codigo de matlab se puede observar la posicion final (actual en la que se encuentra la tortuga).\n
 Finalmente para terminar las 2 instancias de los nodos en matlab usamos el comando `rosshutdown`.
+
 - **c) Utilizando Python**
   - **Procedimiento para operar una tortuga con el teclado:**
   - - Mover la tortuga hacia adelante y hacia atrás con las teclas W y S.
@@ -101,8 +102,9 @@ Finalmente para terminar las 2 instancias de los nodos en matlab usamos el coman
   - Incluye el script en la sección de `catkin install python` del archivo `CMakeLists.txt`.
   - Compila el paquete modificado con `catkin`.
   - Ejecuta el script en una terminal para controlar la tortuga con el teclado.
+  - 
 **Resultados**
-incialmente se parte d ela construccion del codigo el cual se toman las fucniones de teleport y la velocidad en x, y
+incialmente se parte de la construccion del codigo el cual se toman las fucniones de teleport y la velocidad en x, y
 Se crea el codigo de lectura y asignación de caracteres por teclado par asideterminar los desplazamientos que debe realizae la tortuga.
 El codigo es el siguiente:
 
@@ -167,7 +169,10 @@ while character != chr(27):
 termios.tcsetattr(sys.stdin, termios.TCSADRAIN, orig_settings)  
 ```
 
-parta el movimiento hacia adelante y hacia atras de la tortuga 
+Para el movimiento hacia adelante y hacia atras de la tortuga al  ingresar el caracter W, S se ejecuta la condicion de velocidad que indica el sentido el angulo de rotacion y le tiempo en el que se ejecuta 
+el desplazamiento.
+
+Para el giro de la tortuga en un sentido bienee a horaio u antihorario con las teclas D, A seemplea la función velocidad donde la velocidad es o y se indican los giros en radianes bien sea positivo o negativo segun sea el caso para que la tortug gire esto en un determinado tiempoel cual es el tercer parametro de la función.
 
 
 
