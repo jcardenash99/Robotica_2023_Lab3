@@ -11,19 +11,15 @@
 
 - __ a) Familiarización con comandos de Linux __
 - Como primer acercamiento a linux partimeos por conocer unos comandos como herramientas para desempeñarnos en elsistema operativo, dentro de los cuales se tiene:
--  **pwd:**Imprimir directorio de trabajo.
+-  **pwd:** Imprimir directorio de trabajo.
 -  **ls:** Permite la enumeración de archivos y directorios dentro del actual.
 -  **cd:** Cambiamos el directorio actual a otro que se indique.
--  **toque:**Podemos crear un archivo vacio con el nombre especificado.
--  **rm:**Eliminar archivo.
+-  **toque:** Podemos crear un archivo vacio con el nombre especificado.
+-  **rm:** Eliminar archivo.
 -  **mkdir:** crea un directorio.
 -  **mv:** Mueve un archi o directorio a la ubicación especificada.
 -  **cp:** Copia archivo o directorio.
 -  **man:** Muestra la pagina del manual del comando que se especifique.
--  Algo aca 2
--  budkhusgsaiusncml
-- 
-- algo aqui
 
 - **b) Conexión de ROS con Matlab**
   - **Procedimiento:**
