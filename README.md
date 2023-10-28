@@ -94,10 +94,81 @@ Como podemos observar en el codigo en linux se realiza al tiempo un desplazamien
 Finalmente para terminar las 2 instancias de los nodos en matlab usamos el comando `rosshutdown`.
 - **c) Utilizando Python**
   - **Procedimiento para operar una tortuga con el teclado:**
-    - Mover la tortuga hacia adelante y hacia atrás con las teclas W y S.
+  - - Mover la tortuga hacia adelante y hacia atrás con las teclas W y S.
     - Girar en sentido horario y antihorario con las teclas D y A.
     - Retornar a la posición y orientación centrales con la tecla R.
     - Realizar un giro de 180° con la tecla ESPACIO.
   - Incluye el script en la sección de `catkin install python` del archivo `CMakeLists.txt`.
   - Compila el paquete modificado con `catkin`.
   - Ejecuta el script en una terminal para controlar la tortuga con el teclado.
+**Resultados**
+´´´´ Python
+#!/usr/bin/env python
+import rospy
+from geometry_msgs.msg import Twist
+from turtlesim.srv import TeleportAbsolute, TeleportRelative
+import os
+import tty
+import sys
+import termios
+from numpy import pi
+TERMIOS = termios
+
+def teleport(x, y, ang):
+    rospy.wait_for_service('/turtle1/teleport_absolute')
+    try:
+        teleportA = rospy.ServiceProxy('/turtle1/teleport_absolute', TeleportAbsolute)
+        resp1 = teleportA(x, y, ang)
+        print('Teleported to x: {}, y: {}, ang: {}'.format(str(x),str(y),str(ang)))
+    except rospy.ServiceException as e:
+        print(str(e))
+
+
+def pubVel(vel_x, ang_z, t):
+    pub = rospy.Publisher('/turtle1/cmd_vel', Twist, queue_size=10)
+    rospy.init_node('velPub', anonymous=False)
+    vel = Twist()
+    vel.linear.x = vel_x
+    vel.angular.z = ang_z
+    #rospy.loginfo(vel)
+    endTime = rospy.Time.now() + rospy.Duration(t)
+    while rospy.Time.now() < endTime:
+        pub.publish(vel)
+
+def getkey():
+    orig_settings = termios.tcgetattr(sys.stdin)
+    tty.setcbreak(sys.stdin)
+    x = 0
+    x=sys.stdin.read(1)[0]
+    return x
+
+character = 'w'
+while character != chr(27):
+    character=getkey()
+    if character== 'w':
+        pubVel(0.5,0,0.2)
+    if character=='a':
+        pubVel(0,pi/8,0.2)
+    if character=='d':
+        pubVel(0,-pi/8,0.2)
+    if character== 's':
+        pubVel(-0.5,0,0.2)
+    if character == 'r':
+        pubVel(0,0,0)
+        teleport(5.544,5.544,0)
+    if character== ' ':
+        pubVel(0,pi/2,0.2)
+
+termios.tcsetattr(sys.stdin, termios.TCSADRAIN, orig_settings)  
+´´´
+
+
+
+
+
+
+
+
+
+
+
