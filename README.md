@@ -102,6 +102,11 @@ Finalmente para terminar las 2 instancias de los nodos en matlab usamos el coman
   - Compila el paquete modificado con `catkin`.
   - Ejecuta el script en una terminal para controlar la tortuga con el teclado.
 **Resultados**
+incialmente se parte d ela construccion del codigo el cual se toman las fucniones de teleport y la velocidad en x, y
+Se crea el codigo de lectura y asignación de caracteres por teclado par asideterminar los desplazamientos que debe realizae la tortuga.
+El codigo es el siguiente:
+
+
 ``` Python
 #!/usr/bin/env python
 import rospy
@@ -162,7 +167,7 @@ while character != chr(27):
 termios.tcsetattr(sys.stdin, termios.TCSADRAIN, orig_settings)  
 ```
 
-
+parta el movimiento hacia adelante y hacia atras de la tortuga 
 
 
 
