@@ -21,7 +21,7 @@
 -  **cp:** Copia archivo o directorio.
 -  **man:** Muestra la pagina del manual del comando que se especifique.
 - 
-- 
+- algo aqui
 
 - **b) Conexión de ROS con Matlab**
   - **Procedimiento:**
