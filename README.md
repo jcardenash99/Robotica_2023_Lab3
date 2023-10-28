@@ -5,7 +5,9 @@
 ### Johan Leonardo Castellanos Ruiz.
 ### Juan Pablo Cardenas Higuera.
 ![](kkk)
-## Instructivo de Actividad
+## Instructivo
+![kkk](https://github.com/jcardenash99/Robotica_2023_Lab3/assets/143892609/de80045a-054e-4de1-9ad8-726c7e609961)
+ de Actividad
 
 ### Ejercicio en el laboratorio
 
