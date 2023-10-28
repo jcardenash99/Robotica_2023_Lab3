@@ -21,6 +21,7 @@
 -  **cp:** Copia archivo o directorio.
 -  **man:** Muestra la pagina del manual del comando que se especifique.
 -  Algo aca 2
+-  budkhusgsaiusncml
 - 
 - algo aqui
 
