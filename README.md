@@ -197,3 +197,9 @@ En el ejemplo se puede observar que las teclas presionadas fueron:
 
 Llevandonos a la posicion final que se observa en la Pose de matlab en windows
 
+### referencias:
+[1] Laboratorio 2 - Robotica de Desarrollo, Intro a ROS
+[2] ROS Tutorials. Disponibles en la wiki de ROS: http://wiki.ros.org/ROS/Tutorials
+[3] Robotics - UNAL - LAB2 [Repositorio en GitHub]. Disponible en: https://github.com/fegonzalez7/
+rob_unal_clase2
+[4] Hello Turtle. [Repositorio en GitHub]. Disponible en: https://github.com/felipeg17/hello_turtle
