@@ -102,7 +102,7 @@ Finalmente para terminar las 2 instancias de los nodos en matlab usamos el coman
   - Compila el paquete modificado con `catkin`.
   - Ejecuta el script en una terminal para controlar la tortuga con el teclado.
 **Resultados**
-´´´´ Python
+``` Python
 #!/usr/bin/env python
 import rospy
 from geometry_msgs.msg import Twist
@@ -160,7 +160,7 @@ while character != chr(27):
         pubVel(0,pi/2,0.2)
 
 termios.tcsetattr(sys.stdin, termios.TCSADRAIN, orig_settings)  
-´´´
+```
 
 
 
