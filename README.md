@@ -4,7 +4,7 @@
 ### Wilfer Armando Fiquitiva Mendez.
 ### Johan Leonardo Castellanos Ruiz.
 ### Juan Pablo Cardenas Higuera.
-
+![](kkk)
 ## Instructivo de Actividad
 
 ### Ejercicio en el laboratorio
