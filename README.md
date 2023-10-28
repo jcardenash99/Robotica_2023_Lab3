@@ -94,16 +94,89 @@ Al ejecutar un cambio en la posción inicial en la terminal en linux tenemos un 
 Como podemos observar en el codigo en linux se realiza al tiempo un desplazamiento en `x=2 y=-1 theta=z=pi` se dezplaza la tortuga y en windows en el codigo de matlab se puede observar la posicion final (actual en la que se encuentra la tortuga).
 
 Finalmente para terminar las 2 instancias de los nodos en matlab usamos el comando `rosshutdown`.
+
 - **c) Utilizando Python**
   - **Procedimiento para operar una tortuga con el teclado:**
-    - Mover la tortuga hacia adelante y hacia atrás con las teclas W y S.
+  - - Mover la tortuga hacia adelante y hacia atrás con las teclas W y S.
     - Girar en sentido horario y antihorario con las teclas D y A.
     - Retornar a la posición y orientación centrales con la tecla R.
     - Realizar un giro de 180° con la tecla ESPACIO.
   - Incluye el script en la sección de `catkin install python` del archivo `CMakeLists.txt`.
   - Compila el paquete modificado con `catkin`.
   - Ejecuta el script en una terminal para controlar la tortuga con el teclado.
-  Para el retorno al inicio con la tecla r se hizo uso de la funcion de teleport y de la funcion de getkey, con la de getkey detectamos la pulsasion de la tecla r y con la de teleport lo transportamos a la posicion inicial la cual es una pose de `x=5.544 y=5.544 theta=0º`.
+ 
+**Resultados**
+incialmente se parte de la construccion del codigo el cual se toman las fucniones de teleport y la velocidad en x, y
+Se crea el codigo de lectura y asignación de caracteres por teclado par asideterminar los desplazamientos que debe realizae la tortuga.
+El codigo es el siguiente:
+
+
+``` Python
+#!/usr/bin/env python
+import rospy
+from geometry_msgs.msg import Twist
+from turtlesim.srv import TeleportAbsolute, TeleportRelative
+import os
+import tty
+import sys
+import termios
+from numpy import pi
+TERMIOS = termios
+
+def teleport(x, y, ang):
+    rospy.wait_for_service('/turtle1/teleport_absolute')
+    try:
+        teleportA = rospy.ServiceProxy('/turtle1/teleport_absolute', TeleportAbsolute)
+        resp1 = teleportA(x, y, ang)
+        print('Teleported to x: {}, y: {}, ang: {}'.format(str(x),str(y),str(ang)))
+    except rospy.ServiceException as e:
+        print(str(e))
+
+
+def pubVel(vel_x, ang_z, t):
+    pub = rospy.Publisher('/turtle1/cmd_vel', Twist, queue_size=10)
+    rospy.init_node('velPub', anonymous=False)
+    vel = Twist()
+    vel.linear.x = vel_x
+    vel.angular.z = ang_z
+    #rospy.loginfo(vel)
+    endTime = rospy.Time.now() + rospy.Duration(t)
+    while rospy.Time.now() < endTime:
+        pub.publish(vel)
+
+def getkey():
+    orig_settings = termios.tcgetattr(sys.stdin)
+    tty.setcbreak(sys.stdin)
+    x = 0
+    x=sys.stdin.read(1)[0]
+    return x
+
+character = 'w'
+while character != chr(27):
+    character=getkey()
+    if character== 'w':
+        pubVel(0.5,0,0.2)
+    if character=='a':
+        pubVel(0,pi/8,0.2)
+    if character=='d':
+        pubVel(0,-pi/8,0.2)
+    if character== 's':
+        pubVel(-0.5,0,0.2)
+    if character == 'r':
+        pubVel(0,0,0)
+        teleport(5.544,5.544,0)
+    if character== ' ':
+        pubVel(0,pi/2,0.2)
+
+termios.tcsetattr(sys.stdin, termios.TCSADRAIN, orig_settings)  
+```
+
+Para el movimiento hacia adelante y hacia atras de la tortuga al  ingresar el caracter W, S se ejecuta la condicion de velocidad que indica el sentido el angulo de rotacion y el tiempo en el que se ejecuta 
+el desplazamiento.
+
+Para el giro de la tortuga en un sentido bien sea horaio u antihorario con las teclas D, A se emplea la función velocidad; donde la velocidad es o y se indican los giros en radianes positivo o negativo segun sea el caso para que la tortuga gire en un determinado tiempo el cual es el tercer parametro de la función.
+
+Para el retorno al inicio con la tecla r se hizo uso de la funcion de teleport y de la funcion de getkey, con la de getkey detectamos la pulsasion de la tecla r y con la de teleport lo transportamos a la posicion inicial la cual es una pose de `x=5.544 y=5.544 theta=0º`.
 
 Para el giro de 180º se uso la funcion getkey para leer la pulsacion de la tecla espacio y para el giro se uso la funcion pubVel la cual admite parametros de deplzamiento en x rotacion angular y tiempo de ejecucion del desplazamiento, siendo que se dejaron los parametros como `x=0 theta=pi/2 tiempo=1`.
 **Resultados**
@@ -123,3 +196,4 @@ En el ejemplo se puede observar que las teclas presionadas fueron:
   - giro de 180º
 
 Llevandonos a la posicion final que se observa en la Pose de matlab en windows
+
