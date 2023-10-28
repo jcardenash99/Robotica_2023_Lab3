@@ -81,8 +81,9 @@ Codigo de matlab en la terminal con linux (siendo esta el nodo maestro)
  send(velPub,velMsg); %Envio del mensaje
  pause(1)
 ```
-Estos codigos son los codigos respectivos para las dos terminales una siendo la que publica (terminal con linux) la otra siendo la que se suscribe (terminal con windows). \n
-Como Se observa en la figura, tenemos la tortuga en la posicion inicial, esta es en X=5.544 Y=5.544 Z=0. \n
+Estos codigos son los codigos respectivos para las dos terminales una siendo la que publica (terminal con linux) la otra siendo la que se suscribe (terminal con windows). 
+Como Se observa en la figura, tenemos la tortuga en la posicion inicial, esta es en X=5.544 Y=5.544 Z=0. 
+
 ![Posicion inicial](https://github.com/jcardenash99/Robotica_2023_Lab3/assets/61796945/49845027-dcc4-4ac4-876a-362587bf2c4a)
 ![Datos de la posicion inicial](https://github.com/jcardenash99/Robotica_2023_Lab3/assets/61796945/026fdde4-01f2-4a63-bb19-f2c9b4153c77)
 
@@ -90,7 +91,8 @@ Al ejecutar un cambio en la posción inicial en la terminal en linux tenemos un 
 ![Primer desplazamiento](https://github.com/jcardenash99/Robotica_2023_Lab3/assets/61796945/a98b4cbf-07c2-49ec-82ee-377994f7a39e)
 ![Primer desplazamiento pose](https://github.com/jcardenash99/Robotica_2023_Lab3/assets/61796945/a204cdfd-7826-4e81-977a-56aea39d0e0f)
 
-Como podemos observar en el codigo en linux se realiza al tiempo un desplazamiento en `x=2 y=-1 theta=z=pi` se dezplaza la tortuga y en windows en el codigo de matlab se puede observar la posicion final (actual en la que se encuentra la tortuga).\n
+Como podemos observar en el codigo en linux se realiza al tiempo un desplazamiento en `x=2 y=-1 theta=z=pi` se dezplaza la tortuga y en windows en el codigo de matlab se puede observar la posicion final (actual en la que se encuentra la tortuga).
+
 Finalmente para terminar las 2 instancias de los nodos en matlab usamos el comando `rosshutdown`.
 
 - **c) Utilizando Python**
@@ -102,7 +104,7 @@ Finalmente para terminar las 2 instancias de los nodos en matlab usamos el coman
   - Incluye el script en la sección de `catkin install python` del archivo `CMakeLists.txt`.
   - Compila el paquete modificado con `catkin`.
   - Ejecuta el script en una terminal para controlar la tortuga con el teclado.
-  - 
+ 
 **Resultados**
 incialmente se parte de la construccion del codigo el cual se toman las fucniones de teleport y la velocidad en x, y
 Se crea el codigo de lectura y asignación de caracteres por teclado par asideterminar los desplazamientos que debe realizae la tortuga.
@@ -174,11 +176,24 @@ el desplazamiento.
 
 Para el giro de la tortuga en un sentido bien sea horaio u antihorario con las teclas D, A se emplea la función velocidad; donde la velocidad es o y se indican los giros en radianes positivo o negativo segun sea el caso para que la tortuga gire en un determinado tiempo el cual es el tercer parametro de la función.
 
+Para el retorno al inicio con la tecla r se hizo uso de la funcion de teleport y de la funcion de getkey, con la de getkey detectamos la pulsasion de la tecla r y con la de teleport lo transportamos a la posicion inicial la cual es una pose de `x=5.544 y=5.544 theta=0º`.
 
+Para el giro de 180º se uso la funcion getkey para leer la pulsacion de la tecla espacio y para el giro se uso la funcion pubVel la cual admite parametros de deplzamiento en x rotacion angular y tiempo de ejecucion del desplazamiento, siendo que se dejaron los parametros como `x=0 theta=pi/2 tiempo=1`.
+**Resultados**
+![segundo desplazamiento ](https://github.com/jcardenash99/Robotica_2023_Lab3/assets/61796945/24cfc4f9-e8e1-4594-9d68-599dc989a69f)
+![segundo desplazamiento pose](https://github.com/jcardenash99/Robotica_2023_Lab3/assets/61796945/ec9c86d7-3820-48c4-8469-73c09e31c91c)
 
+Como podemos observar en las dos graficas tenemos que los codigos ejecutandose en las 3 instacias de las terminales siendo `roscore`, `rosrun turtlesim turtlesim_node` y el codigo en python `myTeleopKey.py`. 
 
+En las imagenes vemos el recorrido de la tortuga segun las teclas presionadas y haciendo uso del codigo en matlab de windows podemos ver la pose de la tortuga el publicar ese valor desde la terminal de linux. 
 
+En el ejemplo se puede observar que las teclas presionadas fueron:
+  - derecha
+  - adelante
+  - derecha
+  - adelante
+  - adelante
+  - giro de 180º
 
-
-
+Llevandonos a la posicion final que se observa en la Pose de matlab en windows
 
