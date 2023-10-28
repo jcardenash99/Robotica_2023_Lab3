@@ -114,5 +114,5 @@ En el ejemplo se puede observar que las teclas presionadas fueron:
   - adelante
   - adelante
   - giro de 180º
-  - adelante
+    \n
 Llevandonos a la posicion final que se observa en la Pose de matlab en windows
