@@ -101,3 +101,9 @@ Finalmente para terminar las 2 instancias de los nodos en matlab usamos el coman
   - Incluye el script en la sección de `catkin install python` del archivo `CMakeLists.txt`.
   - Compila el paquete modificado con `catkin`.
   - Ejecuta el script en una terminal para controlar la tortuga con el teclado.
+**Resultados**
+![segundo desplazamiento ](https://github.com/jcardenash99/Robotica_2023_Lab3/assets/61796945/24cfc4f9-e8e1-4594-9d68-599dc989a69f)
+![segundo desplazamiento pose](https://github.com/jcardenash99/Robotica_2023_Lab3/assets/61796945/ec9c86d7-3820-48c4-8469-73c09e31c91c)
+
+Como podemos observar en las dos graficas tenemos que los codigos ejecutandose en las 3 instacias de las terminales siendo `roscore`, `rosrun turtlesim turtlesim_node` y el codigo en python `myTeleopKey.py`. \n
+En las imagenes vemos el recorrido de la tortuga segun las teclas presionadas y haciendo uso del codigo en matlab de windows podemos ver la pose de la tortuga el publicar ese valor desde la terminal de linux.
