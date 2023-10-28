@@ -106,4 +106,13 @@ Finalmente para terminar las 2 instancias de los nodos en matlab usamos el coman
 ![segundo desplazamiento pose](https://github.com/jcardenash99/Robotica_2023_Lab3/assets/61796945/ec9c86d7-3820-48c4-8469-73c09e31c91c)
 
 Como podemos observar en las dos graficas tenemos que los codigos ejecutandose en las 3 instacias de las terminales siendo `roscore`, `rosrun turtlesim turtlesim_node` y el codigo en python `myTeleopKey.py`. \n
-En las imagenes vemos el recorrido de la tortuga segun las teclas presionadas y haciendo uso del codigo en matlab de windows podemos ver la pose de la tortuga el publicar ese valor desde la terminal de linux.
+En las imagenes vemos el recorrido de la tortuga segun las teclas presionadas y haciendo uso del codigo en matlab de windows podemos ver la pose de la tortuga el publicar ese valor desde la terminal de linux. \n
+En el ejemplo se puede observar que las teclas presionadas fueron:
+  - derecha
+  - adelante
+  - derecha
+  - adelante
+  - adelante
+  - giro de 180º
+  - adelante
+Llevandonos a la posicion final que se observa en la Pose de matlab en windows
