@@ -169,10 +169,10 @@ while character != chr(27):
 termios.tcsetattr(sys.stdin, termios.TCSADRAIN, orig_settings)  
 ```
 
-Para el movimiento hacia adelante y hacia atras de la tortuga al  ingresar el caracter W, S se ejecuta la condicion de velocidad que indica el sentido el angulo de rotacion y le tiempo en el que se ejecuta 
+Para el movimiento hacia adelante y hacia atras de la tortuga al  ingresar el caracter W, S se ejecuta la condicion de velocidad que indica el sentido el angulo de rotacion y el tiempo en el que se ejecuta 
 el desplazamiento.
 
-Para el giro de la tortuga en un sentido bienee a horaio u antihorario con las teclas D, A seemplea la función velocidad donde la velocidad es o y se indican los giros en radianes bien sea positivo o negativo segun sea el caso para que la tortug gire esto en un determinado tiempoel cual es el tercer parametro de la función.
+Para el giro de la tortuga en un sentido bien sea horaio u antihorario con las teclas D, A se emplea la función velocidad; donde la velocidad es o y se indican los giros en radianes positivo o negativo segun sea el caso para que la tortuga gire en un determinado tiempo el cual es el tercer parametro de la función.
 
 
 
